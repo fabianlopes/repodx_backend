@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Repositório de técnicas de DX</p>
+    <form action="/assistente" method="post" name="assistente">
+      <table border="1" cellpadding="0" cellspacing="0" style="width:100%">
+        <tbody>
+          <tr>
+            <td style="width:50%">
+            <h3>O que precisamos saber:</h3>
+            </td>
+            <td>&nbsp;</td>
+            <td style="width:50%">
+            <h3>Nossa sugest&atilde;o: <input type="submit" value="Sugerir técnica" /></h3>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>Aqui precisamos saber informa&ccedil;&otilde;es para poder auxiliar melhor na sele&ccedil;&atilde;o da t&eacute;cnica de avalia&ccedil;&atilde;o de DX</p>
+              <p>Qual a area da DX voce quer avaliar?</p>
+              <p>(Não conhece as áreas da DX? clique <a href="/definicao">AQUI</a> para maiores informações)</p>
+              <p>
+                Área Cognitiva <input name="cognitiva" type="checkbox" value="cognitiva" />
+                Área Afetiva <input name="afetiva" type="checkbox" value="afetiva" />
+                Área Conotativa <input name="conotativa" type="checkbox" value="conotativa" />
+              </p>
+              <p>Qual o contexto que voce aplicará a técnica de avaliação de DX?</p>
+              <p>
+                Academia <input name="academia" type="checkbox" value="academia" />
+                Indústria <input name="industria" type="checkbox" value="industria" />
+              </p>
+              <p>Qual o método que voce deseja utilizar para avaliação de DX?</p>
+              <p>(Frameworks podem conter artefatos, questionários e entrevistas em conjunto)</p>
+              <p>
+                Questionários <input name="questionario" type="checkbox" value="questionario" />
+                Entrevistas <input name="entrevista" type="checkbox" value="entrevista" />
+                Frameworks <input name="framework" type="checkbox" value="framework" />
+              </p>
+              <p>Voce conhece o ambiente onde será realizada a avaliação?</p>
+              <p>
+                Remoto<input name="remoto" type="radio" value="remoto" />
+                Presencial<input name="presencial" type="radio" value="presencial" />            
+                Híbrido<input name="hibrido" type="radio" value="hibrido" />
+              </p>
+              <p>Qual o número de colaboradores participarão da avaliação de DX?</p>
+              <p>(pode ser respondido com o número provável de colaboradores da organização)</p>
+              <p><input name="nivel1" type="radio" value="1 - 50" /> de 1 - 50 </p>
+              <p><input name="nivel2" type="radio" value="51 - 100" /> de 51 - 100</p>  
+              <p><input name="nivel3" type="radio" value="101 - 1000" /> de 101 - 1000</p>  
+              <p><input name="nivel4" type="radio" value="acima de 1000" /> acima de 1000</p>
+              <p>Voce acompanhará os participantes durante a avaliação?</p>
+              <p>
+                Sim <input name="acompanhasim" type="radio" value="sim" />
+                Não <input name="acompanhanao" type="radio" value="nao" />
+              </p>            
+              <p>Qual o nível de experiência dos participantes da avaliação de DX?</p>
+              <p>(Os níveis são distribuídos da seguinte forma: 1 a 3 anos, iniciante; 3 a 5 anos, experiente; acima de 5 anos, especialista)</p>
+              <p>
+                Especialista <input name="especialista" type="checkbox" value="especialista" />
+                Experiente <input name="experiente" type="checkbox" value="experiente" />
+                Iniciante <input name="iniciante" type="checkbox" value="iniciante" />
+              </p>
+            </td>
+            <td>&nbsp;</td>
+            <td>
+              <ul>
+                <% listatecnicas.forEach(function(tecnicas){ %>
+                  <li>
+                    <a href="/tecnicas/<%= tecnicas._id %>">
+                      <%= tecnicas.ID %>            
+                    </a>
+                    <%= tecnicas.nome %>                  
+                  </li>
+                <% }) %>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>   
+    </form>
+  </body>
+</html>
+

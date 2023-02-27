@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <h3>Técnica</h3>
+    <form action="/tecnicas" method="GET">
+      <p>ID:<input readonly type="text" name="id" value="<%= tecnica.ID %>" /></p>
+      <p>Nome:<input readonly type="text" name="nome" value="<%= tecnica.nome %>" /></p>
+      <p>Resumo:<input readonly type="text" name="resumo" value="<%= tecnica.resumo %>" /></p>
+      <p>Metodo:<input readonly type="text" name="metodo" value="<%= tecnica.metodo %>" /></p>
+      <p>Referencia:<input readonly type="text" name="referencia" value="<%= tecnica.referencia %>" /></p>
+      <p>Área da DX:<input readonly type="text" name="areadx" value="<%= tecnica.areadx %>" /></p>
+      <p>Contexto:<input readonly type="text" name="contexto" value="<%= tecnica.contexto %>" /></p>
+      <p>Como utilizar:<input readonly type="text" name="nome" value="<%= tecnica.utilizacao %>" /></p>
+      <input type="submit" value="Confirmar" />
+    </form>
+  </body>
+</html>
+
