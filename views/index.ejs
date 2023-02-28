@@ -21,6 +21,17 @@
       </a>
       
     </p>
+
+    <ul>
+      <% listatecnicas.forEach(function(tecnicas){ %>
+        <li>
+          <a href="/tecnicas/<%= tecnicas._id %>">
+            <%= tecnicas.ID %>            
+          </a>
+          <%= tecnicas.nome %>                  
+        </li>
+      <% }) %>
+    </ul>
     
   </body>
 </html>    
