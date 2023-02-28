@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 
 // rotas
-//app.use('/', indexRouter);
+app.use('/', indexRouter);
 //app.use('/users', usersRouter);
 // api
 app.use('/', apiRouter);
