@@ -6,6 +6,7 @@ const db = require("../db");
 /* GET index. */
 router.get('/', async (req, res, next) => {
   try {    
+    const listatecnicas = await db.findAll();
     res.render('index', { title: 'RepoDX' });
   } catch (err) {
     next(err);
