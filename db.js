@@ -4,13 +4,19 @@ let singleton;
  
 async function connect() {
     if (singleton) return singleton;
- 
+ /*
     const client = new MongoClient(process.env.MONGO_HOST_ATLAS);
     //const client = new MongoClient(process.env.MONGO_HOST);
     await client.connect();
  
     singleton = client.db(process.env.MONGO_DATABASE_ATLAS);
     //singleton = client.db(process.env.MONGO_DATABASE);
+   */
+    MongoClient.connect(process.env.MONGODB_URI, { useNewUrlParser: true })
+    .then(() => console.log('Connected to MongoDB'))
+    .catch(error => console.error(error));
+    
+
     return singleton;
 }
 

@@ -7,7 +7,7 @@ const db = require("../db");
 router.get('/', async (req, res, next) => {
   try {    
     const listatecnicas = await db.findAll();
-    res.render('index', { title: 'RepoDX' });
+    res.render('index', { title: 'RepoDX', listatecnicas });
   } catch (err) {
     next(err);
   }
