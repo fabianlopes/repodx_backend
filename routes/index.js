@@ -55,4 +55,31 @@ router.post('/assistente', async (req, res, next) => {
   }  
 })
 
+router.get('/delete/:id', async (req, res) => {
+  const id = req.params.id;
+
+  try {
+    const result = await db.deleteOne(id);
+    console.log(result);
+    res.redirect('/');
+  } catch (err) {
+    next(err);
+  }
+})
+
+router.post('/edit/:id', async (req, res) => {
+  const id = req.params.id;
+  const name = req.body.name;
+  const age = parseInt(req.body.age);
+
+  try {
+    const result = await db.update(id, { name, age });
+    console.log(result);
+    res.redirect('/');
+  } catch (err) {
+    next(err);
+  }
+})
+
+
 module.exports = router;

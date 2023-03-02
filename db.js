@@ -48,5 +48,22 @@ async function findExpressao(filtro) {
     return db.collection("tecnicas_tag").find( { tags: { $all: expressaoregular } } ).toArray();    
         
 }
- 
-module.exports = { findAll, findOne, findExpressao } 
+
+async function insert(COLLECTION, item) {
+    const db = await connect();
+    return db.collection(COLLECTION).insertOne(item);
+}
+
+async function deleteOne(COLLECTION, id) {
+    const db = await connect();
+    return db.collection(COLLECTION).deleteOne({ _id: new ObjectId(id) });
+}
+
+async function update(id, customer) {
+    const db = await connect();
+    return db.collection(COLLECTION).updateOne({ _id: new ObjectId(id) }, { $set: customer });
+}
+
+module.exports = { findAll, insert, findOne, update }
+
+module.exports = { findAll, insert, findOne, deleteOne }
